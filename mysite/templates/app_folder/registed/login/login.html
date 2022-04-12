@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-5 border-bottom">
+  <h1 class="h2">ログイン</h1>
+</div>
+{% if form.errors  %}
+<p>ユーザーID, パスワードが一致しません．</p>
+{% endif %}
+<form method="POST">
+  {% csrf_token %}
+  <label>ニックネーム</label>
+  {{ form.username }}
+  {{ form.username.errors }}
+  <label>パスワード</label>
+  {{ form.password }}
+  {{ form.password.errors }}
+  <a class="text-decoration-none" href="/app_folder/registed/login/create">会員登録はこちらから</a>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-secondary text-white ">ログイン</button>
+</form>
+{% endblock %}

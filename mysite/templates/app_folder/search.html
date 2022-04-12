@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-5 border-bottom">
+  <h1 class="h2">検索</h1>
+</div> 
+
+{% comment %} <div class="d-flex justify-content-around mt-2 border-bottom">
+  <h5 class="pt-2">キーワードを入力</h4>
+  <form action="{% url 'app_folder:admin' %}" method="POST">
+    <div class="d-flex justify-content-around">
+      <p class="mr-1">
+        <input class="form-control " type="text" name="input_data" maxlength="255">
+      </p>
+      <p>
+        <button type="submit" name="button" class="btn btn-info text-white">
+          検索
+        </button>
+      </p>
+    </div>
+    {% csrf_token %}
+  </form>
+</div>
+<input type="date">
+<div class="l-container p-header-wrapper p-header-wrapper--bottom">
+  <div class="l-contents l-contents--fixed">
+    <div id="suggest_datas" data-area_datatype="" data-area_id="" data-lat="" data-lng="" data-no_suggest_flg="" style="display:none;" data-multiple-suggest-flg="0" class="js-search-suggest-datas"></div>
+    <div id="multi-suggest" style="display:none;"></div>
+    <div id="js-sa-user-input" data-value="" style="display:none;"></div>
+    <div class="p-header">
+      <div class="p-header__title">
+        <h2 class="rsttop-search-ttl">日時、人数から探す</h2>
+      </div>
+
+      <div class="p-header__search p-global-search-suggest rsttop-search-form">
+          <form id="rstsearch_form" class="p-global-search" name="FrmSrchFreeWord" method="get" action="https://tabelog.com/rst/rstsearch/" accept-charset="UTF-8">
+            <input type="hidden" name="LstKind" value="1">
+            <input type="hidden" name="voluntary_search" id="voluntary_search" value="1">
+              <input type="hidden" name="lid" id="lid" value="top_navi1">
+            <div class="p-global-search-suggest__wrap">
+              <div class="js-header-input-wrap p-global-search__input-wrap p-global-search__input-wrap--area">
+                <input id="sa" type="text" name="sa" size="15" autocomplete="off" maxlength="50" value="" placeholder="エリア・駅 [例:銀座、渋谷]" class="p-global-search__input js-header-val js-search-area-input p-global-search-suggest__input">
+                <div class="js-header-search-clear-area p-global-search__clear-btn p-global-search-suggest__clear-btn">
+                  <i>クリア</i>
+                </div>
+                <div id="search-notification" class="p-global-search__suggest-error js-header-search-area-notification" style="display: none;">
+                  <p>該当するエリア・駅がありません。入力内容をご確認ください。</p>
+                </div>
+                <div id="search-error" class="p-global-search__search-error js-search-suggest-error" style="display: none;">
+                  <p class="p-global-search__search-error-text">
+                    <span>該当のエリア・駅が見つかりませんでした。入力内容を変更して、再度検索してください。</span>
+                  </p>
+                </div>
+              </div>
+              <div class="js-header-input-wrap p-global-search__input-wrap p-global-search__input-wrap--key">
+                <input id="sk" type="text" name="sk" size="30" maxlength="50" value="" placeholder="キーワード [例:焼肉、店名、個室]" autocomplete="off" class="p-global-search__input js-header-val js-search-keyword-input p-global-search-suggest__input">
+                <div class="js-header-search-clear-keyword p-global-search__clear-btn p-global-search-suggest__clear-btn">
+                  <i>クリア</i>
+                </div>
+              </div>
+<div class="p-global-search__vacancy p-global-search__vacancy--time">
+  <label for="js-svt-header" class="p-global-search__select-wrap gly-a-arrowdown">
+    <select name="svt" id="js-svt-header" class="p-global-search__select p-global-search-suggest__input"><option value="1000">10:00</option>
+<option value="1030">10:30</option>
+<option value="1100">11:00</option>
+<option value="1130">11:30</option>
+<option value="1200">12:00</option>
+<option value="1230">12:30</option>
+<option value="1300">13:00</option>
+<option value="1330">13:30</option>
+<option value="1400">14:00</option>
+<option value="1430">14:30</option>
+<option value="1500">15:00</option>
+<option value="1530">15:30</option>
+<option value="1600">16:00</option>
+<option value="1630">16:30</option>
+<option value="1700">17:00</option>
+<option value="1730">17:30</option>
+<option value="1800">18:00</option>
+<option value="1830">18:30</option>
+<option value="1900">19:00</option>
+<option value="1930">19:30</option>
+<option value="2000">20:00</option>
+<option value="2030">20:30</option>
+<option value="2100">21:00</option>
+<option value="2130">21:30</option>
+<option value="2200">22:00</option>
+<option value="2230">22:30</option>
+<option value="2300">23:00</option>
+<option value="2330">23:30</option>
+<option value="2400">24:00</option></select>                      </label>
+</div>
+<div class="p-global-search__vacancy p-global-search__vacancy--member">
+  <label for="js-svps-header" class="p-global-search__select-wrap p-global-search__select-wrap--member gly-a-arrowdown">
+    <select id="js-svps-header" class="js-vacancy-search-form p-global-search__select p-global-search-suggest__input rsttop-search-form__input-narrow" name="svps">
+        <option value="1">1名</option>
+        <option value="2">2名</option>
+        <option value="3">3名</option>
+        <option value="4">4名</option>
+        <option value="5">5名</option>
+        <option value="6">6名</option>
+        <option value="7">7名</option>
+        <option value="8">8名</option>
+        <option value="9">9名</option>
+        <option value="10">10名</option>
+        <option value="11">11名</option>
+        <option value="12">12名</option>
+        <option value="13">13名</option>
+        <option value="14">14名</option>
+        <option value="15">15名</option>
+        <option value="16">16名</option>
+        <option value="17">17名</option>
+        <option value="18">18名</option>
+        <option value="19">19名</option>
+        <option value="20">20名</option>
+        <option value="21">21名</option>
+        <option value="22">22名</option>
+        <option value="23">23名</option>
+        <option value="24">24名</option>
+        <option value="25">25名</option>
+        <option value="26">26名</option>
+        <option value="27">27名</option>
+        <option value="28">28名</option>
+        <option value="29">29名</option>
+        <option value="30">30名</option>
+        <option value="31">31名</option>
+        <option value="32">32名</option>
+        <option value="33">33名</option>
+        <option value="34">34名</option>
+        <option value="35">35名</option>
+        <option value="36">36名</option>
+        <option value="37">37名</option>
+        <option value="38">38名</option>
+        <option value="39">39名</option>
+        <option value="40">40名</option>
+        <option value="41">41名</option>
+        <option value="42">42名</option>
+        <option value="43">43名</option>
+        <option value="44">44名</option>
+        <option value="45">45名</option>
+        <option value="46">46名</option>
+        <option value="47">47名</option>
+        <option value="48">48名</option>
+        <option value="49">49名</option>
+        <option value="50">50名</option>
+    </select>
+  </label>
+</div>
+<div class="js-header-clear p-global-search__clear-btn p-global-search-suggest__clear-btn">
+  <i>クリア</i>
+</div>
+  </div>
+<div class="p-global-search__search-wrap">
+  <input type="hidden" name="hfc" value="1">
+  <button id="js-global-search-btn" class="p-global-search__search-btn" type="submit" name="form_submit">
+    <i>検索</i>
+  </button>
+</div>
+<div class="js-header-search-suggest p-global-search-suggest__suggest-wrap rsttop-search-form__suggest-wrap"></div>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrAcub-onlqCPAQw5iiA8ugtLtvY5knYA&callback=initMap" async defer></script>
+<script type="text/javascript" src="{% static 'js/app_folder/search.js'%}"></script>
+{% endblock %}

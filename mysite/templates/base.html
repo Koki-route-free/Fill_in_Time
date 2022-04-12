@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='slim' %}
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=320,
+                    height=480,
+                    initial-scale=1.0,
+                    minimum-scale=1.0,
+                    maximum-scale=2.0,
+                    user-scalable=yes" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cccabinet.jpn.org/bootstrap4/css/style.css">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/base.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/app_folder/search.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/app_folder/history.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/app_folder/saved.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/app_folder/time_line.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/app_folder/notlogin.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/app_folder/registed/login/terms.css'%}"> 
+
+    
+    <title> Fill in Time </title>
+    
+    {% block extra_css %}{% endblock %}
+    
+  </head>
+  <body>
+    <!-- ↓↓１番上のナビゲーションバー↓↓ -->
+    <div class="container-fluid sticky-top version_telephone">
+      <div class="row bg-info">
+        <div class="col-12">
+          <div class="d-flex justify-content-between">
+            <p class="navbar-brand mr-2 text-white title_name">
+              F_i_T
+            </p>
+            <ul class="d-flex justify-content-around list-unstyled">
+              <li class="pt-1 mr-3 mt-4"></li>
+              <li class="pt-1 mr-3 mt-4">
+                {% comment %} 無料会員登録/ログイン {% endcomment %}
+                  {% if user.username %}
+                  <a class="" href="/app_folder/registed/personal">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78C15.57 19.36 13.86 20 12 20s-3.57-.64-4.93-1.72zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
+                  </a>
+                  {% else %}
+                  <a class="" href="/app_folder/registed/login" >
+                    <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 0 24 24" width="28px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78C15.57 19.36 13.86 20 12 20s-3.57-.64-4.93-1.72zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
+                  </a>
+                  {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid sticky-top version_pc">
+      <div class="row bg-danger">
+        <div class="col-12">
+          <div class="d-flex justify-content-between">
+            <p class="navbar-brand mr-2 text-white title_name">
+              F_i_T
+            </p>
+            <ul class="d-flex justify-content-around list-unstyled">
+              <li class="mr-4 pt-1 mt-4">
+                {% comment %} 検索 {% endcomment %}
+                <a class="" href="/#" >
+                  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </a>
+              </li>
+              <li class="mr-4 pt-1 mt-4">
+                {% comment %} 保存済み {% endcomment %}
+                {% if user.username %}
+                  <a class="" href="/app_folder/saved">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </a>
+                {% else %}
+                  <a class="" href="/app_folder/notlogin" >
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </a>
+                {% endif %}
+              </li>
+              <li class="mr-4 pt-1 mt-4">
+                {% comment %} 履歴 {% endcomment %}
+                {% if user.username %}
+                  <a class="" href="/app_folder/saved" >
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8z"/></svg>
+                  </a>
+                {% else %}
+                  <a class="" href="/app_folder/notlogin" >
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8z"/></svg>
+                  </a>
+                {% endif %}
+              </li>
+              <li class="mr-4 pt-1 mt-4">
+                {% comment %} タイムライン {% endcomment %}
+                <a class="" href="/app_folder/time_line">
+                  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M11.99,2C6.47,2,2,6.48,2,12s4.47,10,9.99,10C17.52,22,22,17.52,22,12S17.52,2,11.99,2z M15.29,16.71L11,12.41V7h2v4.59 l3.71,3.71L15.29,16.71z"/></g></svg>
+                </a>
+              </li>
+              <li class="mr-3 pt-1 mt-4">
+                {% comment %} 会員登録/ログイン {% endcomment %}
+                  {% if user.username %}
+                  <a class="text-white text-decoration-none" href="/app_folder/registed/personal" >
+                    {{ user.username }}
+                  </a>
+                  {% else %}
+                  <a class="text-white text-decoration-none" href="/app_folder/registed/login">
+                    Anonymous
+                  </a>
+                  {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="d-flex justify-content-center mb-5">
+        <!-- ↓↓サイドバー↓↓ -->
+        <div class=" mr-2">
+          <div id="sidemenu" class="d-none d-md-block bg-light sidebar align-self-start">
+            <div class="sidebar-sticky">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <nav class="navbar navbar-light bg-light">
+                    <a class='navbar-brand' href='/#'>
+                      検索
+                    </a>
+                  </nav>
+                </li>
+                <li class="nav-item">
+                  <nav class="navbar navbar-light bg-light">
+                    {%if user.username%}
+                    <a class='navbar-brand' href='/app_folder/saved'>
+                      保存済み
+                    </a>
+                    {% else %}
+                    <a class="navbar-brand" href="/app_folder/notlogin" >
+                      保存済み
+                    </a>
+                    {% endif %}
+                  </nav>
+                </li>
+                <li class="nav-item">
+                  <nav class="navbar navbar-light bg-light">
+                    {%if user.username%}
+                    <a class='navbar-brand' href='/app_folder/saved'>
+                      履歴
+                    </a>
+                    {% else %}
+                    <a class="navbar-brand" href="/app_folder/notlogin" >
+                      履歴
+                    </a>
+                    {% endif %}
+                  </nav>
+                </li>
+                <li class="nav-item">
+                  <nav class="navbar navbar-light bg-light">
+                    <a class='navbar-brand' href='/app_folder/time_line'>
+                      タイムライン
+                    </a>
+                  </nav>
+                </li>
+                <li class="nav-item">
+                  <nav class="navbar navbar-light bg-light">
+                    {% if user.username %}
+                    <a class="navbar-brand" href="/app_folder/registed/personal" >{{ user.username }}</a>
+                    {% else %}
+                    <a class="navbar-brand" href="/app_folder/registed/login" >無料会員登録<br>/ログイン</a>
+                    {% endif %}
+                  </nav>
+                </li>
+              </ul>
+            </div> 
+          </div id="sidemenu">
+          <div class="version_telephone col-0"></div>
+        </div>
+        <!-- ↑↑サイドバーここまで↑↑ -->
+        <!-- ↓↓コンテンツ本体↓↓ -->
+        <div class="pr-0 pl-0 mr-0 ml-0" id="col_change">
+          {% block contents %}
+          {% endblock %}
+        </div>
+        <!-- ↑↑コンテンツ本体ここまで↑↑ -->
+      </div>
+    </div>
+    <div class="container-fluid fixed-bottom version_telephone" id="footer">
+      <div class="row bg-info pt-3"> 
+        <div class="col-12">
+          <ul class="d-flex justify-content-around list-unstyled">
+            <li class="">
+              {% comment %} 検索 {% endcomment %}
+              <a class="" href="/app_folder/search">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              </a>
+            </li>
+            <li class="">
+              {% comment %} 保存済み {% endcomment %}
+              {% if user.username %}
+                <a class="" href="/app_folder/saved">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </a>
+              {% else %}
+                <a class="" href="/app_folder/notlogin" >
+                  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </a>
+              {% endif %}
+            </li>
+            <li class="">
+              {% comment %} 履歴 {% endcomment %}
+              {% if user.username %}
+                <a class="" href="/app_folder/saved" >
+                  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8z"/></svg>
+                </a>
+              {% else %}
+                <a class="" href="/app_folder/notlogin" >
+                  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8z"/></svg>
+                </a>
+              {% endif %}
+            </li>
+            <li class="">
+              {% comment %} タイムライン {% endcomment %}
+              <a class="" href="/app_folder/time_line">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="30px" viewBox="0 0 24 24" width="30px" fill="#FFFFFF"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M11.99,2C6.47,2,2,6.48,2,12s4.47,10,9.99,10C17.52,22,22,17.52,22,12S17.52,2,11.99,2z M15.29,16.71L11,12.41V7h2v4.59 l3.71,3.71L15.29,16.71z"/></g></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="{% static 'js/base.js'%}"></script>
+</html>
+
+<!-- サイドバーに使用しているアイコン -->
+<!-- 使用できるアイコンの一覧： https://voyager-jp.com/blog/javascript/feather/ -->
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script> {% endcomment %}
+{% comment %} <script>feather.replace()</script> {% endcomment %}

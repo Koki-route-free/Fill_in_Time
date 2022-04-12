@@ -1,0 +1,15 @@
+ol.Parentheses {
+  margin-left: 3.5em;  
+}
+ 
+ol.Parentheses li {
+  list-style-type: none;
+  counter-increment: cnt;
+}
+ 
+ol.Parentheses li::before {
+  content: "(" counter(cnt) ")";
+  display:inline-block;
+  margin-left:-3em; 
+  width: 3em; 
+} 

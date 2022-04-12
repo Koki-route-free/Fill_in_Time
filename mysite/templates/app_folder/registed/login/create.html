@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-5 border-bottom">
+  <h1 class="h2">会員登録</h1>
+</div>
+<form method="POST">
+  <div>
+    <p>
+      <a class="text-decoration-none" href="/app_folder/registed/login/terms">利用規約</a>をご覧の上ご登録ください
+    </p>
+  </div>
+  {% csrf_token %}
+  <label>ニックネーム</label>
+  {{ form.username }}
+  {{ form.username.errors }}
+  <label>メールアドレス</label>
+  {{ form.email }}
+  {{ form.email.errors }}
+  <label>パスワード</label>
+  {{ form.password1 }}
+  {{ form.password1.errors }}
+  <label>パスワード(確認)</label>
+  {{ form.password2 }}
+  {{ form.password2.errors }}
+  <div>
+    <button type="submit" class="btn btn-secondary text-white ">登録</button>
+  </div>
+</form>
+{% endblock %}
+
+
+

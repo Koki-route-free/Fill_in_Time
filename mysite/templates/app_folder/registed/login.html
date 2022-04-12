@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<div class="p-3 mb-2 bg-light text-dark">
+  <div class="version_pc">
+    <div class="d-flex justify-content-around">
+        <div class="mt-5 mb-4 border p-3 mb-2 bg-white text-center">
+          <h5>無料会員登録</h5>
+          <p>まだ会員登録がお済みでない方はこちらからご登録ください！</p>
+          <button type="button" class="btn btn-secondary text-white " onclick="location.href='/app_folder/registed/login/create'">
+            会員登録
+          </button>
+        </div>
+        <div class="mt-5 mb-4 border p-3 mb-2 bg-white text-center">
+          <h5 class=>ログイン</h5>
+          <p>既に登録済みの方はこちらをクリックしてください！</p>
+          <button type="button" class="btn btn-secondary text-white" onclick="location.href='/app_folder/registed/login/login'">
+            ログイン
+          </button>
+        </div>
+    </div>
+  </div>
+  <div class="version_telephone">
+    <div class="d-flex flex-column">
+      <div class="mt-5 mb-4 border p-3 mb-2 bg-white text-center">
+        <h5>無料会員登録</h5>
+        <p>まだ会員登録がお済みでない方はこちらからご登録ください！</p>
+        <button type="button" class="btn btn-secondary text-white " onclick="location.href='/app_folder/registed/login/create'">
+          会員登録
+        </button>
+      </div>
+      <div class="mt-5 mb-4 border p-3 mb-2 bg-white text-center">
+        <h5 class=>ログイン</h5>
+        <p>既に登録済みの方はこちらをクリックしてください！</p>
+        <button type="button" class="btn btn-secondary text-white" onclick="location.href='/app_folder/registed/login/login'">
+          ログイン
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
