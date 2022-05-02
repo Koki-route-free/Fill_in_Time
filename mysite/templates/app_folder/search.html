@@ -6,7 +6,7 @@
   <h1 class="h2">検索</h1>
 </div> 
 
-{% comment %} <div class="d-flex justify-content-around mt-2 border-bottom">
+<div class="d-flex justify-content-around mt-2 border-bottom"> 
   <h5 class="pt-2">キーワードを入力</h4>
   <form action="{% url 'app_folder:admin' %}" method="POST">
     <div class="d-flex justify-content-around">
@@ -54,7 +54,7 @@
                 </div>
               </div>
               <div class="js-header-input-wrap p-global-search__input-wrap p-global-search__input-wrap--key">
-                <input id="sk" type="text" name="sk" size="30" maxlength="50" value="" placeholder="キーワード [例:焼肉、店名、個室]" autocomplete="off" class="p-global-search__input js-header-val js-search-keyword-input p-global-search-suggest__input">
+                <input id="sk" type="text" name="sk" size="30" maxlength="50" value="" placeholder="キーワード [例:カラオケ、店名、個室]" autocomplete="off" class="p-global-search__input js-header-val js-search-keyword-input p-global-search-suggest__input">
                 <div class="js-header-search-clear-keyword p-global-search__clear-btn p-global-search-suggest__clear-btn">
                   <i>クリア</i>
                 </div>
@@ -62,34 +62,36 @@
 <div class="p-global-search__vacancy p-global-search__vacancy--time">
   <label for="js-svt-header" class="p-global-search__select-wrap gly-a-arrowdown">
     <select name="svt" id="js-svt-header" class="p-global-search__select p-global-search-suggest__input"><option value="1000">10:00</option>
-<option value="1030">10:30</option>
-<option value="1100">11:00</option>
-<option value="1130">11:30</option>
-<option value="1200">12:00</option>
-<option value="1230">12:30</option>
-<option value="1300">13:00</option>
-<option value="1330">13:30</option>
-<option value="1400">14:00</option>
-<option value="1430">14:30</option>
-<option value="1500">15:00</option>
-<option value="1530">15:30</option>
-<option value="1600">16:00</option>
-<option value="1630">16:30</option>
-<option value="1700">17:00</option>
-<option value="1730">17:30</option>
-<option value="1800">18:00</option>
-<option value="1830">18:30</option>
-<option value="1900">19:00</option>
-<option value="1930">19:30</option>
-<option value="2000">20:00</option>
-<option value="2030">20:30</option>
-<option value="2100">21:00</option>
-<option value="2130">21:30</option>
-<option value="2200">22:00</option>
-<option value="2230">22:30</option>
-<option value="2300">23:00</option>
-<option value="2330">23:30</option>
-<option value="2400">24:00</option></select>                      </label>
+    <option value="1030">10:30</option>
+    <option value="1100">11:00</option>
+    <option value="1130">11:30</option>
+    <option value="1200">12:00</option>
+    <option value="1230">12:30</option>
+    <option value="1300">13:00</option>
+    <option value="1330">13:30</option>
+    <option value="1400">14:00</option>
+    <option value="1430">14:30</option>
+    <option value="1500">15:00</option>
+    <option value="1530">15:30</option>
+    <option value="1600">16:00</option>
+    <option value="1630">16:30</option>
+    <option value="1700">17:00</option>
+    <option value="1730">17:30</option>
+    <option value="1800">18:00</option>
+    <option value="1830">18:30</option>
+    <option value="1900">19:00</option>
+    <option value="1930">19:30</option>
+    <option value="2000">20:00</option>
+    <option value="2030">20:30</option>
+    <option value="2100">21:00</option>
+    <option value="2130">21:30</option>
+    <option value="2200">22:00</option>
+    <option value="2230">22:30</option>
+    <option value="2300">23:00</option>
+    <option value="2330">23:30</option>
+    <option value="2400">24:00</option>
+  </select>                      
+  </label>
 </div>
 <div class="p-global-search__vacancy p-global-search__vacancy--member">
   <label for="js-svps-header" class="p-global-search__select-wrap p-global-search__select-wrap--member gly-a-arrowdown">
@@ -113,37 +115,7 @@
         <option value="17">17名</option>
         <option value="18">18名</option>
         <option value="19">19名</option>
-        <option value="20">20名</option>
-        <option value="21">21名</option>
-        <option value="22">22名</option>
-        <option value="23">23名</option>
-        <option value="24">24名</option>
-        <option value="25">25名</option>
-        <option value="26">26名</option>
-        <option value="27">27名</option>
-        <option value="28">28名</option>
-        <option value="29">29名</option>
-        <option value="30">30名</option>
-        <option value="31">31名</option>
-        <option value="32">32名</option>
-        <option value="33">33名</option>
-        <option value="34">34名</option>
-        <option value="35">35名</option>
-        <option value="36">36名</option>
-        <option value="37">37名</option>
-        <option value="38">38名</option>
-        <option value="39">39名</option>
-        <option value="40">40名</option>
-        <option value="41">41名</option>
-        <option value="42">42名</option>
-        <option value="43">43名</option>
-        <option value="44">44名</option>
-        <option value="45">45名</option>
-        <option value="46">46名</option>
-        <option value="47">47名</option>
-        <option value="48">48名</option>
-        <option value="49">49名</option>
-        <option value="50">50名</option>
+        <option value="20">20名以上</option>
     </select>
   </label>
 </div>
@@ -164,7 +136,7 @@
       </div>
     </div>
   </div>
-</div> {% endcomment %}
+</div>
 {% comment %} <div id="map"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrAcub-onlqCPAQw5iiA8ugtLtvY5knYA&callback=initMap" async defer></script> {% endcomment %}
 <script type="text/javascript" src="{% static 'js/app_folder/search.js'%}"></script>
