@@ -12,6 +12,7 @@ cd ..
 cd mysite
 python manage.py runserver
 
+
 django-admin startproject app_config .
 python manage.py startapp app_folder
 
