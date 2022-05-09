@@ -4,10 +4,12 @@ body {
 }
 a{
   white-space: nowrap;
-  
 }
 a:hover{
   opacity: 0.7;
+}
+.default_color{
+  color: orange;
 }
 .title_name{
   font-size: 40px;
